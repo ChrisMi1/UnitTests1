@@ -1,0 +1,16 @@
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\HRLib.dll
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\HRLib.pdb
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\xrist\source\repos\UnitTests\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\xrist\source\repos\UnitTests\UnitTests\obj\Debug\UnitTests.csproj.AssemblyReference.cache
+C:\Users\xrist\source\repos\UnitTests\UnitTests\obj\Debug\UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\xrist\source\repos\UnitTests\UnitTests\obj\Debug\UnitTests.csproj.CopyComplete
+C:\Users\xrist\source\repos\UnitTests\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\xrist\source\repos\UnitTests\UnitTests\obj\Debug\UnitTests.pdb
