@@ -50,7 +50,7 @@ namespace UnitTests
                 {2,"kwstas2",false,msg },
                 {3,"KWSTAS",false,msg },
                 {4,"Christos2#",false,msg},
-                {5,"christos#",false,msg},
+                {5,"christos#",true,msg},
                 {6,"ChristosGate12!2",true,msg},
                 {7,"kwstas#2",false,msg }
             };
@@ -65,8 +65,8 @@ namespace UnitTests
                 catch (Exception e)
                 {
                     failed = true;
-                    Console.WriteLine("The test failed is : {0} with parameter {1} and a hint is {2}", (int)testCases[i, 0]
-                        , (string)testCases[i, 1], (string)testCases[i, 3]);
+                    Console.WriteLine("The test failed is : {0} with parameter {1} and a hint is {2}/{3}", (int)testCases[i, 0]
+                        , (string)testCases[i, 1], (string)testCases[i, 3],e.Message);
                 }
             }
             if (failed == true) Assert.Fail();
