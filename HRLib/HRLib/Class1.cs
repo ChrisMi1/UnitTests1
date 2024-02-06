@@ -71,6 +71,7 @@ namespace HRLib
                 unicode += 5;
                 EncryptedPW += unicode; 
             }
+
         }
 
         public void CheckPhone(string phone,ref int TypePhone,ref string InfoPhone)

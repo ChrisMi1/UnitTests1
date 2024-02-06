@@ -50,7 +50,7 @@ namespace UnitTests
                 {2,"kwstas2",false,msg },
                 {3,"KWSTAS",false,msg },
                 {4,"Christos2#",false,msg},
-                {5,"christos#",true,msg},
+                {5,"christos#",false,msg},
                 {6,"ChristosGate12!2",true,msg},
                 {7,"kwstas#2",false,msg }
             };
@@ -67,6 +67,42 @@ namespace UnitTests
                     failed = true;
                     Console.WriteLine("The test failed is : {0} with parameter {1} and a hint is {2}/{3}", (int)testCases[i, 0]
                         , (string)testCases[i, 1], (string)testCases[i, 3],e.Message);
+                }
+            }
+            if (failed == true) Assert.Fail();
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            bool failed = false;
+            
+            HRLib.HRLib hr = new HRLib.HRLib();
+            Object[,] testCases =
+            {
+                {1,"Christos@2","721091191101201211161206955"},
+                {2,"Kwstas12@3","8012412012110212054556956"},
+                {3,"kwstas2","11212412012110212055" },
+                {4,"Panos2#","851021151161205540"},
+                {5,"KWSTAS","809288897088" },
+                {5,"panos23%!","11710211511612055564238"}
+            };
+
+            for (int i = 0; i < testCases.GetLength(0); i++)
+            {
+                try
+                {
+                    string encrypted="";
+                    hr.EncryptPassword((string)testCases[i, 1], ref encrypted); 
+
+                    Assert.AreEqual((string)testCases[i, 2], encrypted);
+
+                }
+                catch (Exception e)
+                {
+                    failed = true;
+                    Console.WriteLine("The test failed is : {0} with parameter {1} and a hint is {2} ", (int)testCases[i, 0]
+                        , (string)testCases[i, 1], e.Message );
                 }
             }
             if (failed == true) Assert.Fail();

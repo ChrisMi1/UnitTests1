@@ -27,3 +27,6 @@ C:\Users\xrist\Source\Repos\testing\UnitTests\obj\Debug\UnitTests.csproj.CoreCom
 C:\Users\xrist\Source\Repos\testing\UnitTests\obj\Debug\UnitTests.csproj.CopyComplete
 C:\Users\xrist\Source\Repos\testing\UnitTests\obj\Debug\UnitTests.dll
 C:\Users\xrist\Source\Repos\testing\UnitTests\obj\Debug\UnitTests.pdb
+C:\Users\xrist\Source\Repos\testing\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\xrist\Source\Repos\testing\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\xrist\Source\Repos\testing\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
