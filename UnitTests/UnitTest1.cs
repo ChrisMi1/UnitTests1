@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using HRLib; 
+using HRLib;
+using static HRLib.HRLib;
 namespace UnitTests
 {
     [TestClass]
@@ -144,6 +145,56 @@ namespace UnitTests
             }
 
             if (failed == true) Assert.Fail();
+        }
+
+
+        [TestMethod]
+        public void TestMethod5()
+        {
+            Employee emp = new Employee("Panos", "2102615476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1));
+
+            HRLib.HRLib hr = new HRLib.HRLib();
+            int Age = 0;
+            int YearsOfExperience = 0;
+            hr.InfoEmployee(emp, ref Age, ref YearsOfExperience);
+            Assert.AreEqual(27, Age);
+            Assert.AreEqual(4, YearsOfExperience);
+
+
+
+
+        }
+
+        [TestMethod]
+        public void TestMethod6()
+        {
+            bool failed = false;
+            HRLib.HRLib hr = new HRLib.HRLib(); 
+            Employee[] emp = new Employee[] {new Employee("Panos", "2102615476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("Christos", "2105625476", "6980468796", new DateTime(2001, 8, 3), new DateTime(2023, 1, 1)),
+                                             new Employee("Kwstas", "2209893944", "6978934829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("Nikos", "2102915476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1))};
+
+            Object[,] testCases =
+            {
+                {1,emp,3 }
+            };
+            try { 
+                Assert.AreEqual((int)testCases[0, 2], hr.LiveInAthens((Employee[])testCases[0, 1])); 
+            }catch(Exception ex)
+            {
+                failed = true; 
+                Console.WriteLine("The test failed and a hint is {0}", ex.Message);
+            }
+
+            if (failed == true) Assert.Fail();
+
+
+
+
+
+
+
         }
     }
 }
