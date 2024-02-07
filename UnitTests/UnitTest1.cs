@@ -31,7 +31,7 @@ namespace UnitTests
                 }catch(Exception e)
                 {
                     failed = true;
-                    Console.WriteLine("The test failed is : {0} with parameter {1} and a hint is {2}/{3}", (int)testCases[i, 0]
+                    Console.WriteLine("The test case is : {0} with parameter {1} and a hint is {2}/{3}", (int)testCases[i, 0]
                         , (string)testCases[i, 1], (string)testCases[i, 3],e.Message); 
                 }
             }
@@ -105,6 +105,44 @@ namespace UnitTests
                         , (string)testCases[i, 1], e.Message );
                 }
             }
+            if (failed == true) Assert.Fail();
+        }
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            bool failed = false;
+            HRLib.HRLib hr = new HRLib.HRLib();
+
+            Object[,] testCases =
+            {
+                {1,"6970556974",1,"cosmote"},
+                {2,"9905348659",-1,null },
+                {3,"2204865759",0,"Ανατολική Στερεά Ελλάδα, Αττική, Νησιά Αιγαίου" },
+                {4,"8549665238",-1,null},
+                {5,"2102645876",0,"Μητροπολιτική Περιοχή Αθήνας – Πειραιά"},
+                {6,"0000000567",-1,null},
+                {7,"6945854916",1,"vodafone" }
+            };
+
+            for (int i = 0; i < testCases.GetLength(0); i++)
+            {
+                try
+                {
+                    int TypePhone = -2;
+                    string InfoPhone = "";
+                    hr.CheckPhone((string)testCases[i, 1],ref TypePhone,ref InfoPhone);
+                    Assert.AreEqual((int)testCases[i, 2], TypePhone);
+                    Assert.AreEqual((string)testCases[i, 3], InfoPhone);
+                }
+                catch (Exception e)
+                {
+                    failed = true;
+                    Console.WriteLine("The test failed is : {0} with parameter {1} and a hint is {2}", (int)testCases[i, 0]
+                        , (string)testCases[i, 1], e.Message);
+                }
+            }
+
             if (failed == true) Assert.Fail();
         }
     }
