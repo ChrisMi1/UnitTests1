@@ -151,18 +151,42 @@ namespace UnitTests
         [TestMethod]
         public void TestMethod5()
         {
-            Employee emp = new Employee("Panos", "2102615476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1));
-
+            bool failed = false;
             HRLib.HRLib hr = new HRLib.HRLib();
-            int Age = 0;
-            int YearsOfExperience = 0;
-            hr.InfoEmployee(emp, ref Age, ref YearsOfExperience);
-            Assert.AreEqual(27, Age);
-            Assert.AreEqual(4, YearsOfExperience);
+            Employee emp = new Employee("example1", "2102615476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1));
+            Employee emp1 = new Employee("example2", "2102615476", "6975367829", new DateTime(1999, 5, 9), new DateTime(2021, 1, 1));
+            Employee emp2 = new Employee("example3", "2102615476", "6975367829", new DateTime(2001, 5, 9), new DateTime(2019, 1, 1));
+            Employee emp3 = new Employee("example4", "2102615476", "6975367829", new DateTime(1995, 5, 9), new DateTime(2017, 1, 1));
+            Employee emp4 = new Employee("example5", "2102615476", "6975367829", new DateTime(1994, 5, 9), new DateTime(2016, 1, 1));
 
+            Object[,] testCases =
+            {
+                {1,emp,27,4},
+                {2,emp1,25,3},
+                {3,emp2,23,5},
+                {4,emp3,29,7},
+                {5,emp4,30,8}
+            };
+     
+            for (int i = 0; i < testCases.GetLength(0); i++)
+            {
+                
+                try
+                {
+                    int Age = 0;
+                    int YearsOfExperience = 0;
+                    hr.InfoEmployee((Employee)testCases[i, 1], ref Age, ref YearsOfExperience);
+                    Assert.AreEqual((int)testCases[i, 2], Age);
+                    Assert.AreEqual((int)testCases[i, 3], YearsOfExperience);
+                }
+                catch (Exception e)
+                {
+                    failed = true;
+                    Console.WriteLine("The test failed is : {0} and a hint is {1}", (int)testCases[i, 0],  e.Message);
+                }
+            }
 
-
-
+            if (failed == true) Assert.Fail();
         }
 
         [TestMethod]
@@ -170,31 +194,48 @@ namespace UnitTests
         {
             bool failed = false;
             HRLib.HRLib hr = new HRLib.HRLib(); 
-            Employee[] emp = new Employee[] {new Employee("Panos", "2102615476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
-                                             new Employee("Christos", "2105625476", "6980468796", new DateTime(2001, 8, 3), new DateTime(2023, 1, 1)),
-                                             new Employee("Kwstas", "2209893944", "6978934829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
-                                             new Employee("Nikos", "2102915476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1))};
+            Employee[] emp = new Employee[] {new Employee("example1", "2102615476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("example2", "2105625476", "6980468796", new DateTime(2001, 8, 3), new DateTime(2023, 1, 1)),
+                                             new Employee("example3", "2209893944", "6978934829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("example4", "2102915476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1))};
+            
+            Employee[] emp1 = new Employee[] {new Employee("example5","2402615476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("example6", "2505625476", "6980468796", new DateTime(2001, 8, 3), new DateTime(2023, 1, 1)),
+                                             new Employee("example7", "2609893944", "6978934829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("example8", "2802915476", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1))};
+
+            Employee[] emp2 = new Employee[] {new Employee("example5","4566432335", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("example6", "2102984722", "6980468796", new DateTime(2001, 8, 3), new DateTime(2023, 1, 1)),
+                                             new Employee("example7", "2101321233", "6978934829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("example8", "2105756756", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1))};
+
+            Employee[] emp3 = new Employee[] {new Employee("example9", "2102132312", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("example10", "2102984722", "6980468796", new DateTime(2001, 8, 3), new DateTime(2023, 1, 1)),
+                                             new Employee("example11", "2101321233", "6978934829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1)),
+                                             new Employee("example12", "2105756756", "6975367829", new DateTime(1997, 5, 9), new DateTime(2020, 1, 1))};
 
             Object[,] testCases =
             {
-                {1,emp,3 }
+                {1,emp,3},
+                {2,emp1,0},
+                {3,emp2,3},
+                {4,emp3,4}
             };
-            try { 
-                Assert.AreEqual((int)testCases[0, 2], hr.LiveInAthens((Employee[])testCases[0, 1])); 
-            }catch(Exception ex)
+            for (int i = 0; i < testCases.GetLength(0); i++)
             {
-                failed = true; 
-                Console.WriteLine("The test failed and a hint is {0}", ex.Message);
+                try
+                {
+                    Assert.AreEqual((int)testCases[i, 2], hr.LiveInAthens((Employee[])testCases[i, 1]));
+                }
+                catch (Exception ex)
+                {
+                    failed = true;
+                    Console.WriteLine("The test failed is : {0} and a hint is {1}",(int)testCases[i,0], ex.Message);
+                }
+
+                
             }
-
             if (failed == true) Assert.Fail();
-
-
-
-
-
-
-
         }
     }
 }
