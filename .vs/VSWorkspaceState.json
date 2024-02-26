@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HRLib",
+    "\\HRLib\\HRLib",
+    "\\UnitTests"
   ],
-  "SelectedNode": "\\UnitTests.sln",
+  "SelectedNode": "\\HRLib\\HRLib\\Class1.cs",
   "PreviewInSolutionExplorer": false
 }

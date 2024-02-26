@@ -11,15 +11,15 @@ namespace UnitTests
         public void TestMethod1()
         {
             bool failed = false;
-            string msg = "The name must have 1 space between first name and last name";
-            string msg1 = "The name must not have symmbols or digits "; 
+            string msg = "The name must have 1 space between first name and last name...error code: "+1;
+            string msg1 = "The name must not have symbols or digits...error code: "+2; 
             HRLib.HRLib hr = new HRLib.HRLib();
             Object[,] testCases=
             {
-                {1,"Kwstas Palaiologou",true,msg+msg1},
-                {2,"Panos Dionysopoulos2",false,msg+msg1 },
-                {3,"Christos Maltezos#",false,msg+msg1 },
-                {4,"Christos",false,msg+msg1 },
+                {1,"Kwstas Palaiologou",true,msg},
+                {2,"Panos Dionysopoulos2",false,msg1 },
+                {3,"Christos Maltezos#",false,msg1 },
+                {4,"Christos",false,msg },
                 {5,"panos Dionysopoulos",true,msg+msg1}
             };
 
@@ -32,8 +32,8 @@ namespace UnitTests
                 }catch(Exception e)
                 {
                     failed = true;
-                    Console.WriteLine("The test case is : {0} with parameter {1} and a hint is {2}/{3}", (int)testCases[i, 0]
-                        , (string)testCases[i, 1], (string)testCases[i, 3],e.Message); 
+                    Console.WriteLine("Error identifier:{0}. The test case that failed in TestMethod1 is : {1} with parameter {2} and the error occur is: {3} ",
+                        (string)testCases[i, 3], (int)testCases[i, 0],(string)testCases[i, 1], e.Message); 
                 }
             }
             if (failed == true) Assert.Fail(); 
@@ -43,17 +43,21 @@ namespace UnitTests
         public void TestMethod2()
         {
             bool failed = false;
-            string msg = "\n Ο κωδικός πρεπει να είναι μεγαλύτερος απο 12 χαρακτήρες\nΟ κωδικός πρέπει να ξεκινάει με κεφαλαίο γράμμα και τελείωνει με αριθμό\nΠρέπει να υπάρχουν κεφαλαία και μικρά γράμματα\n Πρέπει να υπάρχει τουλάχιστον ένα σύμβολο και ένα νούμερο\n Τα γράμματα πρέπει να ειναι λατινικά";
+            string msg =  "Password must have lenght equal or greater than 12 characters...error code: "+3;
+            string msg1 = "Password must starts with capital letter and ends with number...error code: "+4; 
+            string msg2 = "Password must have capital and lowercase letters...error code: "+5;
+            string msg3 = "Password must have at least one number and at least one symbol...error code "+6; 
+            string msg4 = "Letters must be latin...error code: "+7;
             HRLib.HRLib hr = new HRLib.HRLib();
             Object[,] testCases =
             {
                 {1,"KwstasPappa12@3",true,msg},
-                {2,"kwstas2",false,msg },
-                {3,"KWSTAS",false,msg },
-                {4,"Christos2#",false,msg},
-                {5,"christos#",false,msg},
+                {2,"kwstas2",false,msg+msg1+msg2+msg3 },
+                {3,"KWSTAS",false,msg+msg1+msg2+msg3 },
+                {4,"Christos2#",false,msg+msg1},
+                {5,"christos#",false,msg+msg1+msg2+msg3},
                 {6,"ChristosGate12!2",true,msg},
-                {7,"kwstas#2",false,msg }
+                {7,"kwstas#2",false,msg+msg1+msg2 }
             };
 
             for (int i = 0; i < testCases.GetLength(0); i++)
@@ -66,8 +70,8 @@ namespace UnitTests
                 catch (Exception e)
                 {
                     failed = true;
-                    Console.WriteLine("The test failed is : {0} with parameter {1} and a hint is {2}/{3}", (int)testCases[i, 0]
-                        , (string)testCases[i, 1], (string)testCases[i, 3],e.Message);
+                    Console.WriteLine("Error identifier:{0}. The test case that failed in TestMethod2 is : {1} with parameter {2} and the error occur is: {3}",
+                        (string)testCases[i, 3], (int)testCases[i, 0], (string)testCases[i, 1], e.Message);
                 }
             }
             if (failed == true) Assert.Fail();
